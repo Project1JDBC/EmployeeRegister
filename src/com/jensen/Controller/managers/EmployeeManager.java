@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import com.jensen.Model.Employee;
-import com.jensen.Model.Role;
 import com.jensen.Model.Skill;
 
 public class EmployeeManager extends JFrame{
@@ -27,33 +26,28 @@ public class EmployeeManager extends JFrame{
 		} 
 		else {
 			Date date = new Date();
-			
-			
-			Employee employee = new Employee(queryManager.generateId(), fname, lname,Integer.parseInt(role), Integer.parseInt(location),
+			Employee employee = new Employee(this.queryManager.generateId(), fname, lname, Integer.parseInt(role), Integer.parseInt(location),
 					date);
 			Skill skills = new Skill(Integer.parseInt(skill));
-			queryManager.insertInto(employee,skills);
-			queryManager.showAllEmployee();
+			this.queryManager.insertInto(employee, skills);
+			this.queryManager.showAllEmployee();
 		}
 	}
 
 	/* Delete Employee */
 	public void deleteEmployee(String id) {
-		
 		if (id.isEmpty() && id.contains(null)) {
 
 		} else {
-			queryManager.deleteEmployee(id);
-			queryManager.showAllEmployee();
+			this.queryManager.deleteEmployee(id);
+			this.queryManager.showAllEmployee();
 		}
 	}
 	
 	/* Update Employee */
 	public void updateEmployee(String id, String fn) {
-		
 		Employee employee = new Employee(Integer.parseInt(id), fn);
-		
-		queryManager.updateEmployee(employee);
-		queryManager.getAllRowsOnlyName();
+		this.queryManager.updateEmployee(employee);
+		this.queryManager.getAllRowsOnlyName();
 	}
 }

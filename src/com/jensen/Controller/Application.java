@@ -8,14 +8,12 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import com.jensen.Controller.managers.*;
-import com.jensen.Model.Employee;
 
 public class Application {
 	private ConnectionManager connectionManager;
 	private EmployeeManager employeeManager;
 	private ViewManager viewManager;
 	private QueryManager queryManager;
-	private RoleManager roleManager;
 
 
 	public Application() {
@@ -25,12 +23,12 @@ public class Application {
 	 * Initializes all Managers
 	 */
 	public void init() {
-		connectionManager = new ConnectionManager();
-		viewManager = new ViewManager();
-		queryManager = new QueryManager(connectionManager.getConnection(), viewManager.getTableModel(), connectionManager.getSession());
-		employeeManager = new EmployeeManager(queryManager);
+		this.connectionManager = new ConnectionManager();
+		this.viewManager = new ViewManager();
+		this.queryManager = new QueryManager(this.connectionManager.getConnection(), this.viewManager.getTableModel(), this.connectionManager.getSession());
+		this.employeeManager = new EmployeeManager(queryManager);
 		addActionListeners();
-		viewManager.initDefaultGUI();
+		this.viewManager.initDefaultGUI();
 	}
 
 	/* The Dialog for creating a new Employee */
@@ -63,14 +61,14 @@ public class Application {
 			if(fnameField.getText().equals("") || lnameField.getText().equals("") || roleField.getText().equals("") || locationField.getText().equals("") || skillField.getText().equals("")){
 				JOptionPane.showMessageDialog(null, "All input must be filled!");
 			}else{
-				employeeManager.addEmployee(fnameField.getText(), lnameField.getText(), roleField.getText(), locationField.getText(), skillField.getText());
+				this.employeeManager.addEmployee(fnameField.getText(), lnameField.getText(), roleField.getText(), locationField.getText(), skillField.getText());
 			}
 		}
 	}
 
 	/* The Dialog for updating a Employee */
 	private void showUpdateEmployeeDialog() {
-		queryManager.getAllRowsOnlyName();
+		this.queryManager.getAllRowsOnlyName();
 		JTextField idField = new JTextField(5);
 		JTextField fnameField = new JTextField(5);
 
@@ -89,14 +87,14 @@ public class Application {
 			if(fnameField.getText().equals("") || idField.getText().equals("")){
 				JOptionPane.showMessageDialog(null, "All input must be filled!");
 			}else{	
-				employeeManager.updateEmployee(idField.getText(), fnameField.getText());
+				this.employeeManager.updateEmployee(idField.getText(), fnameField.getText());
 			}
 		}
 	}
 
 	/* The Dialog for removing a Employee */
 	private void showDeleteEmployeeDialog() {
-		queryManager.showAllEmployee();
+		this.queryManager.showAllEmployee();
 		JTextField idField = new JTextField(5);
 
 		JPanel employeePanel = new JPanel(new BorderLayout(5, 5));
@@ -111,16 +109,16 @@ public class Application {
 		if (result == JOptionPane.OK_OPTION) {
 			if(idField.getText().equals("")){
 				JOptionPane.showMessageDialog(null, "All input must be filled!");
-			}else{
-				employeeManager.deleteEmployee(idField.getText());
+			} else{
+				this.employeeManager.deleteEmployee(idField.getText());
 			}
 		}
 	}
 
 	/* Adds ActionListeners to all the JButtons */
 	public void addActionListeners() {
-		ArrayList<JButton> buttonLeft = viewManager.getButtonLeft();
-		ArrayList<JButton> buttonRight = viewManager.getButtonRight();
+		ArrayList<JButton> buttonLeft = this.viewManager.getButtonLeft();
+		ArrayList<JButton> buttonRight = this.viewManager.getButtonRight();
 
 		for (int i = 0; i < buttonLeft.size(); i++) {
 			buttonLeft.get(i).addActionListener(new ActionListener() {

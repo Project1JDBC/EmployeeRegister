@@ -14,7 +14,7 @@ public class Skill {
 	private String skill;
 	
 	@ManyToMany
-	private Set<Employee> employee = new HashSet<Employee>(0);
+	private Set<Employee> employees = new HashSet<Employee>(0);
 
 	public Skill(int id){
 		this.id = id;
@@ -34,11 +34,11 @@ public class Skill {
 	public void setSkill(String skill) {
 		this.skill = skill;
 	}
-	public Set<Employee> getEmployee() {
-		return employee;
+	public Set<Employee> getEmployees() {
+		return employees;
 	}
-	public void setEmployee(Set<Employee> employee) {
-		this.employee = employee;
+	public void setEmployees(Set<Employee> employees) {
+		this.employees = employees;
 	}
 
 

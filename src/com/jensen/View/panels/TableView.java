@@ -2,8 +2,6 @@ package com.jensen.View.panels;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -15,7 +13,7 @@ public class TableView implements Panel {
 	private static JTable table = new JTable();
 	private DefaultTableModel model = new DefaultTableModel();
 	private JScrollPane scroll = new JScrollPane(); 
-	private String [] columnNamesAll = {"", "", "", "", "", ""};
+	// private String [] columnNamesAll = {"", "", "", "", "", ""};
 
 	public TableView(){
 		init();
@@ -30,9 +28,9 @@ public class TableView implements Panel {
 		this.panel.setLayout(new BorderLayout());
 		this.panel.setPreferredSize(new Dimension(1200, 200));
 		
-		model.setColumnIdentifiers(columnNamesAll);
+		// model.setColumnIdentifiers(columnNamesAll);
 		
-		table.setModel(model); 
+		table.setModel(model);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.setFillsViewportHeight(true);
 		scroll = new JScrollPane(table);
