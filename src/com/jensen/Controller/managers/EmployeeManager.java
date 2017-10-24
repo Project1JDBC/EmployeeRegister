@@ -2,18 +2,12 @@ package com.jensen.Controller.managers;
 
 import java.util.Date;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import com.jensen.Model.Employee;
 import com.jensen.Model.Skill;
 
-public class EmployeeManager extends JFrame{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+public class EmployeeManager {
 	private QueryManager queryManager;
 
 	public EmployeeManager(QueryManager queryManager) {

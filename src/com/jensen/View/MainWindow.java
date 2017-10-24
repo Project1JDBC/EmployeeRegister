@@ -41,6 +41,7 @@ public class MainWindow extends JFrame {
 	public void update() {
 		
 	}
+	
 	/* Disposes the JFrame */
 	public void close() {
 		this.setVisible(false); 
