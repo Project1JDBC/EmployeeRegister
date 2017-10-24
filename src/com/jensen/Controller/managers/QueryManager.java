@@ -1,9 +1,5 @@
 package com.jensen.Controller.managers;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -256,7 +252,6 @@ public class QueryManager {
 		Skill result = session.get(Skill.class, Integer.parseInt(input));
 		for (int i = 0; i < this.employees.size(); i++) {
 			if (this.employees.get(i).getSkills().iterator().hasNext()) {
-				System.out.println(this.employees.get(i).getSkills().iterator().next().getSkill());
 				if (this.employees.get(i).getSkills().iterator().next().getSkill().contains(result.getSkill())) {
 					this.model.addRow(new Object[] { this.employees.get(i).getFirstname(),
 							this.employees.get(i).getLastname(), result.getSkill() });

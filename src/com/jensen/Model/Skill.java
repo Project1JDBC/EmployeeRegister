@@ -6,7 +6,7 @@ import javax.persistence.*;
  * 
  * This Class makes sure that application runs
  * 
- * @author Kami Hassanzadeh
+ * @author Kami  Hassanzadeh
  * @author Gustav Malm
  *
  */
@@ -26,10 +26,8 @@ public class Skill {
 
 	public Skill(int id){
 		this.id = id;
-		
 	}
 	public Skill(){
-		
 	}
 	
 	public int getId() {
