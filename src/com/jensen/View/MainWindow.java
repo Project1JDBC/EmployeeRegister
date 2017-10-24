@@ -31,10 +31,10 @@ public class MainWindow extends JFrame {
 		this.add(panel);
 		this.add(panel1);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(false);
+		// this.setResizable(false); [Unused due to current design]	
 		this.setVisible(true);
 		this.pack();
-		//this.setLocationRelativeTo(null);
+		// this.setLocationRelativeTo(null); [Unused due to current design]
 	}
 
 	/* Updates the Frame - Currently Unused */

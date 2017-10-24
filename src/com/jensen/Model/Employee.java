@@ -42,7 +42,6 @@ public class Employee {
 	
 
 	public Employee(int id,String firstname, String lastname, int role, int location, Date registrationDate) {
-		
 		this.setId(id);
 		this.setFirstname(firstname);
 		this.setLastname(lastname);

@@ -28,8 +28,6 @@ public class ConnectionManager {
 				.addAnnotatedClass(Role.class)
 				.addAnnotatedClass(Location.class)
 				.buildSessionFactory().openSession();
-
-
 		try {
 			connection = DriverManager.getConnection(URL, USER, PW);
 		} catch (SQLException e) {

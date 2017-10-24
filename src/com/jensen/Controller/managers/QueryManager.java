@@ -29,13 +29,13 @@ public class QueryManager {
 	/* Returns all Employees and places it into the JTableModel */
 	public void showAllEmployee() {
 		updateListOfEmployees();
-		
-		this.model.addColumn("Employee ID");
-		this.model.addColumn("First Name");
-		this.model.addColumn("Last Name");
-		this.model.addColumn("Role");
-		this.model.addColumn("Location");
-		this.model.addColumn("Registration Date");
+
+		this.model.addColumn(TableColumnEnum.E_EMPLOYEEID);
+		this.model.addColumn(TableColumnEnum.E_FIRSTNAME);
+		this.model.addColumn(TableColumnEnum.E_LASTNAME);
+		this.model.addColumn(TableColumnEnum.E_ROLE);
+		this.model.addColumn(TableColumnEnum.E_LOCATION);
+		this.model.addColumn(TableColumnEnum.E_REGISTRATIONDATE);
 
 		for (Employee employee : employees) {
 			this.model.addRow(new Object[] { employee.getId(), employee.getFirstname(), employee.getLastname(),
@@ -45,14 +45,14 @@ public class QueryManager {
 	}
 
 	/*
-	 * Returns all Employees with only employee_id and first_name and places it
-	 * into the JTableModel
+	 * Returns all Employees with only employee_id and first_name and places it into
+	 * the JTableModel
 	 */
 	public void getAllRowsOnlyName() {
 		updateListOfEmployees();
 
-		this.model.addColumn("Employee ID");
-		this.model.addColumn("First Name");
+		this.model.addColumn(TableColumnEnum.E_EMPLOYEEID);
+		this.model.addColumn(TableColumnEnum.E_FIRSTNAME);
 
 		for (Employee employee : employees) {
 			this.model.addRow(new Object[] { employee.getId(), employee.getFirstname() });
@@ -156,14 +156,14 @@ public class QueryManager {
 	}
 
 	/*
-	 * Returns a Employee with the same name as the Input parameter and places
-	 * it into the JTableModel
+	 * Returns a Employee with the same name as the Input parameter and places it
+	 * into the JTableModel
 	 */
 	public void getEmployeeByName(String input) {
 		updateListOfEmployees();
-		this.model.addColumn("Employee ID");
-		this.model.addColumn("First Name");
-		this.model.addColumn("Last Name");
+		this.model.addColumn(TableColumnEnum.E_EMPLOYEEID);
+		this.model.addColumn(TableColumnEnum.E_FIRSTNAME);
+		this.model.addColumn(TableColumnEnum.E_LASTNAME);
 
 		for (Employee employee : employees) {
 
@@ -180,43 +180,40 @@ public class QueryManager {
 	public void getEmployeeByLocation(String input) {
 		updateListOfEmployees();
 
-		this.model.addColumn("First Name");
-		this.model.addColumn("Last Name");
-		this.model.addColumn("Location");
+		this.model.addColumn(TableColumnEnum.E_FIRSTNAME);
+		this.model.addColumn(TableColumnEnum.E_LASTNAME);
+		this.model.addColumn(TableColumnEnum.E_LOCATION);
 
 		for (Employee employee : employees) {
 			if (input.equals(employee.getLocationId().toString())) {
 				this.model.addRow(new Object[] { employee.getFirstname(), employee.getLastname(),
 						employee.getLocation().getLocation() });
 			}
-
 		}
-
 	}
 
 	/* Returns all Locations and places it into the JTableModel */
 	public void getAllLocation() {
 		updateListOfLocations();
 
-		this.model.addColumn("Location ID");
-		this.model.addColumn("Location");
+		this.model.addColumn(TableColumnEnum.L_LOCATIONID);
+		this.model.addColumn(TableColumnEnum.L_LOCATION);
 
 		for (Location location : locations) {
 			this.model.addRow(new Object[] { location.getId(), location.getLocation() });
 		}
-
 	}
 
 	/*
-	 * Returns a Employee with the Role of the Input parameter and places it
-	 * into the JTableModel
+	 * Returns a Employee with the Role of the Input parameter and places it into
+	 * the JTableModel
 	 */
 	public void getEmployeeByRole(String input) {
 		updateListOfEmployees();
 
-		this.model.addColumn("First Name");
-		this.model.addColumn("Last Name");
-		this.model.addColumn("Role");
+		this.model.addColumn(TableColumnEnum.E_FIRSTNAME);
+		this.model.addColumn(TableColumnEnum.E_LASTNAME);
+		this.model.addColumn(TableColumnEnum.R_ROLE);
 
 		for (Employee employee : employees) {
 			if (input.equals(employee.getRoleId().toString())) {
@@ -230,9 +227,9 @@ public class QueryManager {
 	/* Returns all Roles and places it into the JTableModel */
 	public void getAllRole() {
 		updateListOfRoles();
-		
-		this.model.addColumn("Role ID");
-		this.model.addColumn("Role");
+
+		this.model.addColumn(TableColumnEnum.R_ROLEID);
+		this.model.addColumn(TableColumnEnum.R_ROLE);
 
 		for (Role role : roles) {
 			this.model.addRow(new Object[] { role.getId(), role.getRole() });
@@ -240,38 +237,34 @@ public class QueryManager {
 	}
 
 	/*
-	 * Returns a Employee with the Skill of the Input parameter and places it
-	 * into the JTableModel
+	 * Returns a Employee with the Skill of the Input parameter and places it into
+	 * the JTableModel
 	 */
 	public void getEmployeeBySkill(String input) {
 		updateListOfEmployees();
 		updateListOfSkills();
 
-		this.model.addColumn("First Name");
-		this.model.addColumn("Last Name");
-		this.model.addColumn("Skill");
+		this.model.addColumn(TableColumnEnum.E_FIRSTNAME);
+		this.model.addColumn(TableColumnEnum.E_LASTNAME);
+		this.model.addColumn(TableColumnEnum.S_SKILL);
 
 		Skill result = session.get(Skill.class, Integer.parseInt(input));
 		for (int i = 0; i < this.employees.size(); i++) {
 			if (this.employees.get(i).getSkills().iterator().hasNext()) {
 				if (this.employees.get(i).getSkills().iterator().next().getSkill().contains(result.getSkill())) {
-					System.out.println("Inne i if-sats: " + this.employees.get(i).getFirstname());
 					this.model.addRow(new Object[] { this.employees.get(i).getFirstname(),
 							this.employees.get(i).getLastname(), result.getSkill() });
-
 				}
 			}
-
 		}
-
 	}
 
 	/* Returns all Skills and places it into the JTableModel */
 	public void getAllSkills() {
 		updateListOfSkills();
-		
-		this.model.addColumn("Skill ID");
-		this.model.addColumn("Skill");
+
+		this.model.addColumn(TableColumnEnum.S_SKILLID);
+		this.model.addColumn(TableColumnEnum.S_SKILL);
 
 		for (Skill skill : skills) {
 			this.model.addRow(new Object[] { skill.getId(), skill.getSkill() });
