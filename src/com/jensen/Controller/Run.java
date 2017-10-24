@@ -4,7 +4,7 @@ import java.util.logging.Level;
 
 /**
  * 
- * This Class makes sure that application runs
+ * This Class makes sure that the  Application runs. See it as the Launcher.
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm

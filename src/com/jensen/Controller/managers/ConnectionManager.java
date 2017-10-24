@@ -1,16 +1,9 @@
 package com.jensen.Controller.managers;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 
-import com.jensen.Model.Employee;
-import com.jensen.Model.Location;
-import com.jensen.Model.Role;
-import com.jensen.Model.Skill;
+import com.jensen.Model.*;
 /**
  * 
  * This Class sets up database connection and hibernate session config
@@ -24,13 +17,13 @@ public class ConnectionManager {
 	private Session session;
 
 	/**
-	 * this constroctor run init
+	 * This Constructor calls for a init() method to set up the required Session.
 	 */
 	public ConnectionManager() {
 		init();
 	}
 	/**
-	 * init a hiberbatesession
+	 * Initializes and builds the Hibernate-Orm Database Connection Session.
 	 */
 	public void init() {
 		this.session = new Configuration().configure()
@@ -42,7 +35,7 @@ public class ConnectionManager {
 	}
 	/**
 	 * 
-	 * @return this object session
+	 * @return Returns this instance of this Object's Session.
 	 */
 	public Session getSession(){
 		return this.session;

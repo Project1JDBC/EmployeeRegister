@@ -8,7 +8,7 @@ import javax.swing.*;
 import com.jensen.Controller.managers.*;
 /**
  * 
- * This Class makes sure that application runs
+ * This Class acts as the Core Controller in which it handles multiple Managers and
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm
@@ -19,23 +19,26 @@ public class Application {
 	private EmployeeManager employeeManager;
 	private ViewManager viewManager;
 	private QueryManager queryManager;
-
+	/**
+	 * This is the Constructor for the Application.class [No parameters]
+	 */
 	public Application() {
-		init();
+		this.init();
 	}
 	/**
 	 * Initializes all Managers
 	 */
-	public void init() {
+	private void init() {
 		this.connectionManager = new ConnectionManager();
 		this.viewManager = new ViewManager();
-		this.queryManager = new QueryManager(this.viewManager.getTableModel(), this.connectionManager.getSession());
-		this.employeeManager = new EmployeeManager(queryManager);
-		addActionListeners();
+		this.queryManager = new QueryManager(this.connectionManager.getSession(), this.viewManager.getTableModel());
+		this.employeeManager = new EmployeeManager(this.queryManager);
+		this.addActionListeners();
 		this.viewManager.initDefaultGUI();
 	}
-
-	/* The Dialog for creating a new Employee */
+	/**
+	 * The Dialog for creating a new Employee 
+	 */
 	private void showAddEmployeeDialog() {
 		JTextField fnameField = new JTextField(5);
 		JTextField lnameField = new JTextField(5);
@@ -74,8 +77,9 @@ public class Application {
 			}
 		}
 	}
-
-	/* The Dialog for updating a Employee */
+	/**
+	 * 	The Dialog for updating a Employee
+	 */
 	private void showUpdateEmployeeDialog() {
 		this.queryManager.getAllRowsOnlyName();
 		JTextField idField = new JTextField(5);
@@ -100,8 +104,9 @@ public class Application {
 			}
 		}
 	}
-
-	/* The Dialog for removing a Employee */
+	/**
+	 *  The Dialog for removing a Employee 
+	 */
 	private void showDeleteEmployeeDialog() {
 		this.queryManager.showAllEmployee();
 		JTextField idField = new JTextField(5);
@@ -123,8 +128,9 @@ public class Application {
 			}
 		}
 	}
-
-	/* Adds ActionListeners to all the JButtons */
+	/**
+	 * Adds ActionListeners to all the JButtons
+	 */
 	public void addActionListeners() {
 		ArrayList<JButton> buttonLeft = this.viewManager.getButtonLeft();
 		ArrayList<JButton> buttonRight = this.viewManager.getButtonRight();

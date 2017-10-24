@@ -4,15 +4,15 @@ import java.util.*;
 import javax.persistence.*;
 /**
  * 
- * This Class is the entity of a employee
+ * This Class is the EntityType of a Employee
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm
  *
  */
-@Entity(name="employees")
+@Entity(name = "employees")
 public class Employee {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "employee_id")
@@ -46,18 +46,16 @@ public class Employee {
 			@JoinColumn(name="employee")},inverseJoinColumns = {
 					@JoinColumn(name="skill")})
 	private Set<Skill> skills = new HashSet<Skill>(0);
-
 	/**
 	 * 
-	 * @param id This is going to be this object id
-	 * @param firstname This is going to be this object FirstName
-	 * @param lastname This is going to be this object LastName
-	 * @param location This is going to be this object Location
-	 * @param role This is going to be this object Role
-	 * @param registrationDate This is going to be this object Date
+	 * @param id This is going to be this Object's id
+	 * @param firstname This is going to be this Object's FirstName
+	 * @param lastname This is going to be this Object's LastName
+	 * @param location This is going to be this Object's Location
+	 * @param role This is going to be this Object's Role
+	 * @param registrationDate This is going to be this Object's Registration Date
 	 */
-	public Employee(int id,String firstname, String lastname,Integer location ,Integer role, Date registrationDate) {
-
+	public Employee(int id, String firstname, String lastname, Integer location, Integer role, Date registrationDate) {
 		this.setId(id);
 		this.setFirstname(firstname);
 		this.setLastname(lastname);
@@ -67,10 +65,10 @@ public class Employee {
 	}
 	/**
 	 * 
-	 * @param firstname This is going to be this object FirstName
-	 * @param lastname This is going to be this object LastName
-	 * @param location location This is going to be this object Location
-	 * @param role role This is going to be this object Role
+	 * @param firstname This is going to be this Object's FirstName
+	 * @param lastname This is going to be this Object's LastName
+	 * @param location location This is going to be this Object's Location
+	 * @param role role This is going to be this Object's Role
 	 */
 	public Employee(String firstname, String lastname,Integer location, Integer role) {
 
@@ -81,149 +79,155 @@ public class Employee {
 	}
 	/**
 	 * 
-	 * @param id This is going to be this object id
-	 * @param firstname This is going to be this object FirstName
+	 * @param id This is going to be this Object's id
+	 * @param firstname This is going to be this Object's FirstName
 	 */
-	public Employee(int id,String firstname) {
+	public Employee(int id, String firstname) {
 		this.setId(id);
 		this.setFirstname(firstname);
 	}
 	/**
 	 * 
-	 * @param id This is going to be this object id
+	 * @param id This is going to be this Object's id
 	 */
 	public Employee(int id) {
 		this.setId(id);
 	}
-
+	/**
+	 * Default Constructor of the Employee.class
+	 */
 	public Employee(){
 
 	}
 	/**
 	 * 
-	 * @return returns this object Id
+	 * @return This Object's Id
 	 */
 	public int getId() {
 		return this.id;
 	}
 	/**
 	 * 
-	 * @param id Sets this object Id
+	 * @param id Sets this Object's Id
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 	/**
 	 * 
-	 * @return returns this object role
+	 * @return This Object's role
 	 */
 	public Integer getRoleId() {
 		return roleId;
 	}
 	/**
 	 * 
-	 * @param roleId sets this object roleId
+	 * @param roleId Sets this Object's roleId
 	 */
 	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 	/**
 	 * 
-	 * @return this object firstName
+	 * @return This Object's firstName
 	 */
 	public String getFirstname() {
 		return firstname;
 	}
 	/**
 	 * 
-	 * @param firstname sets this object firstName
+	 * @param firstname Sets this Object's firstName
 	 */
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
 	/**
 	 * 
-	 * @return this object LastNaem
+	 * @return This Object's LastNaem
 	 */
 	public String getLastname() {
 		return this.lastname;
 	}
 	/**
 	 * 
-	 * @param lastname sets this object LastName
+	 * @param lastname Sets this Object's LastName
 	 */
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
 	/**
 	 * 
-	 * @return this object role
+	 * @return This Object's role
 	 */
 	public Role getRole() {
 		return this.role;
 	}
 	/**
 	 * 
-	 * @param role sets this object role
+	 * @param role Sets this Object's role
 	 */
 	public void setRole(Role role) {
 		this.role = role;
 	}
 	/**
 	 * 
-	 * @return this object location
+	 * @return This Object's location
 	 */
 	public Location getLocation() {
 		return this.location;
 	}
 	/**
 	 * 
-	 * @param location sets object locations
+	 * @param location Sets Object's locations
 	 */
 	public void setLocation(Location location) {
 		this.location = location;
 	}
 	/**
 	 * 
-	 * @return this object sets Of Skills
+	 * @return This Object's set Of Skills
 	 */
 	public Set<Skill> getSkills() {
 		return skills;
 	}
 	/**
 	 * 
-	 * @param skills sets this object set of skills
+	 * @param skills Sets this Object's set of skills
 	 */
 	public void setSkills(Set<Skill> skills) {
 		this.skills = skills;
 	}
 	/**
 	 * 
-	 * @return this object Date
+	 * @return This Object's Registration Date
 	 */
 	public Date getRegistrationDate() {
 		return registrationDate;
 	}
 	/**
 	 * 
-	 * @param registrationDate sets this object Date
+	 * @param registrationDate Sets this Object's Registration Date
 	 */
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 	/**
 	 * 
-	 * @return return this object locationId
+	 * @return This Object's locationId
 	 */
 	public Integer getLocationId() {
 		return locationId;
 	}
 	/**
 	 * 
-	 * @param locationId sets this object locationId
+	 * @param locationId Sets this Object's locationId
 	 */
 	public void setLocationId(Integer locationId) {
 		this.locationId = locationId;
 	}
-
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", roleId=" + roleId
+				+ ", locationId=" + locationId + ", registrationDate=" + registrationDate + "]";
+	}
 }
