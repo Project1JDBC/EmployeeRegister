@@ -4,16 +4,13 @@ import javax.swing.JOptionPane;
 import com.jensen.Model.Employee;
 /**
  * 
- * This Class manages the Employee objects 
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm
  *
  */
 public class EmployeeManager{
-
 	private QueryManager queryManager;
-
 	/**
 	 * 
 	 * @param queryManager This Constructor takes in a Object of the QueryManager Class 
@@ -33,7 +30,6 @@ public class EmployeeManager{
 	 * @param skill This parameter value is going to set this Object's Skill
 	 */
 	public void addEmployee(String fname, String lname, String role, String location, String skill) {
-
 		if (fname.matches(".*\\d+.*") || lname.matches(".*\\d+.*")) {
 			JOptionPane.showMessageDialog(null, "Number is not allowed, try again.");
 		} 
@@ -51,7 +47,6 @@ public class EmployeeManager{
 	 * from list of Employees and the Database by passing the value through to the Query Manager.
 	 */
 	public void deleteEmployee(String id) {
-
 		if (id.isEmpty() && id.contains(null)) {
 
 		} else {
@@ -64,12 +59,9 @@ public class EmployeeManager{
 	 * 
 	 * @param id This parameter is used to find and update a specific Employee by ID from list of 
 	 * Employees and the Database by passing the value through to the Query Manager
-	 * @param fn This parameter is used to change the First Name of a selected Employee
 	 */
 	public void updateEmployee(String id, String fn) {
-
 		Employee employee = new Employee(Integer.parseInt(id), fn);
-
 		this.queryManager.updateEmployee(employee);
 		this.queryManager.getAllRowsOnlyName();
 	}

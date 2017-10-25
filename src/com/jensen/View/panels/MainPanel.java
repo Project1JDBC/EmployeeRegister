@@ -15,28 +15,23 @@ import javax.swing.table.DefaultTableModel;
  *
  */
 public class MainPanel implements Panel {
-
 	private JPanel panel;
-
 	private ArrayList<JButton> buttonLeft, buttonRight;
-
 	private String menyButtonLeft[] = { "Show All Employees", "Delete Employee", "Update Employee", "Add Employee",
 			"Exit" };
-	
 	private String menyButtonRight[] = { "Show All Employees by locations", "Show All Employees by roles",
 			"Show All Employees by skills", "Search for an employee" };
-
 	private int bounds = 30;
 	/**
 	 * This Constructor is used to initialize the MainPanel Object's GUI.
 	 */
 	public MainPanel() {
-		init();
+		this.init();
 	}
 
 	private void init() {
 		this.panel = new JPanel();
-		initDefaultGUI();
+		this.initDefaultGUI();
 	}
 	/**
 	 * Creates JButtons and sets the appropriate attributes to them
@@ -144,5 +139,4 @@ public class MainPanel implements Panel {
 	public String[] getMenyButtonRight() {
 		return menyButtonRight;
 	}
-
 }

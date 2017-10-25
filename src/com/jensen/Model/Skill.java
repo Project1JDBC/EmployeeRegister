@@ -12,7 +12,6 @@ import javax.persistence.*;
  */
 @Entity(name="skills")
 public class Skill {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="skill_id")
@@ -24,17 +23,16 @@ public class Skill {
 	@ManyToMany
 	private Set<Employee> employee = new HashSet<Employee>(0);
 	/**
+	 * Default Constructor of Skill.class
+	 */
+	public Skill(){}
+	/**
 	 * This Constructor tales in a parameter value which will set this SKill Object's Unique ID
 	 * 
 	 * @param id Used to set this Skill Objects Unique ID
 	 */
 	public Skill(int id){
 		this.id = id;
-	}
-	/**
-	 * Default Constructor of Skill.class
-	 */
-	public Skill(){
 	}
 	/**
 	 * This Method is being used to retrieve the Unique ID of a Skill Object
@@ -84,6 +82,4 @@ public class Skill {
 	public void setEmployee(Set<Employee> employee) {
 		this.employee = employee;
 	}
-
-
 }

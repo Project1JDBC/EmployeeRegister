@@ -5,13 +5,12 @@ import java.awt.GridLayout;
 import javax.swing.*;
 /**
  * 
- * This Class makes sure that application runs
+ * This Class is a JFrame acting as this Applications MainWindow
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm
  *
  */
-/* Class MainWindow */
 public class MainWindow extends JFrame {
 	
 	private static final long serialVersionUID = -535055836621390505L;
@@ -23,13 +22,12 @@ public class MainWindow extends JFrame {
 	 */
 	public MainWindow(String title) {
 		this.setTitle(title);
-		init();
+		this.init();
 	}
 	
 	private void init() {
-		initDefaultGUI();
+		this.initDefaultGUI();
 	}
-	
 	private void initDefaultGUI() {
 		this.setLayout(new GridLayout(2, 0));
 	}
@@ -39,14 +37,13 @@ public class MainWindow extends JFrame {
 	 * @param upperPanel Used to add a JPanel to the upper Side of a MainPanel Object [Grid]
 	 * @param lowerPanel Used to add a JPanel to the lower Side of a MainPanel Object [Grid]
 	 */
-	public void addPanel(JPanel panel, JPanel panel1) {
-		this.add(panel);
-		this.add(panel1);
+	public void addPanel(JPanel upperPanel, JPanel lowerPanel) {
+		this.add(upperPanel);
+		this.add(lowerPanel);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setVisible(true);
 		this.pack();
-		//this.setLocationRelativeTo(null);
 	}
 	/**
 	 * This Method is being called whenever the Application needs to Update the MainWindow Object
@@ -62,5 +59,4 @@ public class MainWindow extends JFrame {
 		this.setVisible(false); 
 		this.dispose();	
 	}
-	
 }

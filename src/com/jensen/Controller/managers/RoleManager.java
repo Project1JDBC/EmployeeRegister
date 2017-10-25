@@ -41,5 +41,4 @@ public class RoleManager {
 		}
 		return null;
 	}
-
 }

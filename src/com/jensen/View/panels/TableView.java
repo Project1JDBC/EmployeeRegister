@@ -2,8 +2,6 @@ package com.jensen.View.panels;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -18,7 +16,6 @@ import javax.swing.table.DefaultTableModel;
  *
  */
 public class TableView implements Panel {
-	
 	private JPanel panel;
 	private static JTable table = new JTable();
 	private DefaultTableModel model = new DefaultTableModel();
@@ -27,7 +24,7 @@ public class TableView implements Panel {
 	 * This Constructor of TableView.class initializes the Object's GUI.
 	 */
 	public TableView(){
-		init();
+		this.init();
 	}
 	/**
 	 * This Method is being used to retrieve 
@@ -56,15 +53,11 @@ public class TableView implements Panel {
 	 */
 	@Override
 	public JPanel getPanel() {
-		
 		return this.panel;
 	}
 	/**
 	 * This Method is being used by the Application whenever it's required to refresh the TableView
 	 */
 	@Override
-	public void update() {
-		
-	}
-
+	public void update() {}
 }

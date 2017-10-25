@@ -23,7 +23,6 @@ import com.jensen.Model.TableColumnEnum;
  *
  */
 public class QueryManager {
-
 	private Session session;
 	private DefaultTableModel model;
 	private List<Employee> employees = new LinkedList<Employee>();
@@ -63,7 +62,6 @@ public class QueryManager {
 					employee.getRegistrationDate() });
 		}
 	}
-
 	/**
 	 * Updates the list of Employees and then returns all Employees sorted by Employee ID 
 	 * and Employee Firstname and places it into the correct row in the DefaultTableModel. 

@@ -23,20 +23,19 @@ public class Application {
 	 * This is the Constructor for the Application.class [No parameters]
 	 */
 	public Application() {
-		init();
+		this.init();
 	}
 	/**
 	 * Initializes all Managers
 	 */
-	public void init() {
+	private void init() {
 		this.connectionManager = new ConnectionManager();
 		this.viewManager = new ViewManager();
-		this.queryManager = new QueryManager(this.viewManager.getTableModel(), this.connectionManager.getSession());
-		this.employeeManager = new EmployeeManager(queryManager);
-		addActionListeners();
+		this.queryManager = new QueryManager(this.connectionManager.getSession(), this.viewManager.getTableModel());
+		this.employeeManager = new EmployeeManager(this.queryManager);
+		this.addActionListeners();
 		this.viewManager.initDefaultGUI();
 	}
-
 	/**
 	 * The Dialog for creating a new Employee 
 	 */

@@ -4,15 +4,14 @@ import java.util.*;
 import javax.persistence.*;
 /**
  * 
- * This Class is the entity of a employee
+ * This Class is the EntityType of a Employee
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm
  *
  */
-@Entity(name="employees")
+@Entity(name = "employees")
 public class Employee {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "employee_id")
@@ -55,8 +54,7 @@ public class Employee {
 	 * @param role This is going to be this Object's Role
 	 * @param registrationDate This is going to be this Object's Registration Date
 	 */
-	public Employee(int id,String firstname, String lastname,Integer location ,Integer role, Date registrationDate) {
-
+	public Employee(int id, String firstname, String lastname, Integer location, Integer role, Date registrationDate) {
 		this.setId(id);
 		this.setFirstname(firstname);
 		this.setLastname(lastname);
@@ -83,7 +81,7 @@ public class Employee {
 	 * @param id This is going to be this Object's id
 	 * @param firstname This is going to be this Object's FirstName
 	 */
-	public Employee(int id,String firstname) {
+	public Employee(int id, String firstname) {
 		this.setId(id);
 		this.setFirstname(firstname);
 	}
@@ -226,5 +224,9 @@ public class Employee {
 	public void setLocationId(Integer locationId) {
 		this.locationId = locationId;
 	}
-
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", roleId=" + roleId
+				+ ", locationId=" + locationId + ", registrationDate=" + registrationDate + "]";
+	}
 }

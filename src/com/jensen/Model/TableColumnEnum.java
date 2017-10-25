@@ -8,7 +8,6 @@ package com.jensen.Model;
  *
  */
 public enum TableColumnEnum {
-	
 	/* Employee */
 	E_EMPLOYEEID("Employee ID"),
 	E_FIRSTNAME("First Name"),
@@ -55,5 +54,4 @@ public enum TableColumnEnum {
     public String toString() {
         return this.getColumnName();
     }
-
 }

@@ -81,5 +81,4 @@ public class Location {
 	public void setEmployees(Set<Employee> employees) {
 		this.employees = employees;
 	}
-
 }

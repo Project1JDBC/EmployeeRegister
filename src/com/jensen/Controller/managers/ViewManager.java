@@ -17,7 +17,6 @@ import com.jensen.View.panels.TableView;
  *
  */
 public class ViewManager {
-
 	private MainWindow window;
 	private MainPanel panel;
 	private TableView tableView;
@@ -27,18 +26,18 @@ public class ViewManager {
 	 * This is the Default Constructor of the Class ViewManager
 	 */
 	public ViewManager() {
-		init();
+		this.init();
 	}
 	/**
 	 * This Method is being called the first time the ViewManager is being Instantiated 
 	 */
 	private void init() {
-		
 		this.window = new MainWindow("Employee Register");
 		this.panel = new MainPanel();
 		this.tableView = new TableView();
 		setButtonLeft(panel.getButtonLeft());
 		setButtonRight(panel.getButtonRight());
+
 	}
 	/**
 	 * This Method is being called whenever the Application needs a DefaultTableModel
@@ -62,7 +61,7 @@ public class ViewManager {
 	 * @return A MainWindow Object 
 	 */
 	public MainWindow getWindow() {
-		return window;
+		return this.window;
 	}
 	/**
 	 * This Method is being called whenever the Application needs to return the MainPanel Object
@@ -105,7 +104,7 @@ public class ViewManager {
 	 * @return A list of JButtons
 	 */
 	public ArrayList<JButton> getButtonRight() {
-		return buttonRight;
+		return this.buttonRight;
 	}
 	/**
 	 * This Method is being called whenever the Application needs to set 
@@ -122,7 +121,7 @@ public class ViewManager {
 	 * @return A String of JButtons
 	 */
 	public String[] getMenyButtonLeft() {
-		return panel.getMenyButtonLeft();
+		return this.panel.getMenyButtonLeft();
 	}
 	/**
 	 * This Method is being called whenever the Application needs to return the String Button Object
@@ -130,6 +129,6 @@ public class ViewManager {
 	 * @return A String of JButtons
 	 */
 	public String[] getMenyButtonRight() {
-		return panel.getMenyButtonRight();
+		return this.panel.getMenyButtonRight();
 	}
 }
