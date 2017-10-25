@@ -31,7 +31,7 @@ public class Application {
 	private void init() {
 		this.connectionManager = new ConnectionManager();
 		this.viewManager = new ViewManager();
-		this.queryManager = new QueryManager(this.connectionManager.getSession(), this.viewManager.getTableModel());
+		this.queryManager = new QueryManager(this.viewManager.getTableModel(), this.connectionManager.getSession());
 		this.employeeManager = new EmployeeManager(this.queryManager);
 		this.addActionListeners();
 		this.viewManager.initDefaultGUI();

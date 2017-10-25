@@ -59,6 +59,7 @@ public class EmployeeManager{
 	 * 
 	 * @param id This parameter is used to find and update a specific Employee by ID from list of 
 	 * Employees and the Database by passing the value through to the Query Manager
+	 * @param fn This parameter is used to set the new value of the Employee Object's First Name.
 	 */
 	public void updateEmployee(String id, String fn) {
 		Employee employee = new Employee(Integer.parseInt(id), fn);
