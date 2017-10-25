@@ -1,5 +1,9 @@
 # EmployeeRegister
-**EmployeeRegister** is a java application designed to act as Database Application that manages Employees and the related information. It's programmed in Java alongside the ORM (Object/Relational Mapping) Framework Hibernate-ORM. Uses Swing as a GUI (Graphical User Interface). Uses Hibernate-ORM to get the (JDBC) Database Connection up and running as well as managing the actual Data in the (SQL) Database.
+**EmployeeRegister** is a java application designed to act as Database Application that manages Employees and the related information. It's programmed in Java alongside the ORM (Object/Relational Mapping) Framework Hibernate-ORM. 
+
+Uses Swing as a GUI (Graphical User Interface). 
+
+Uses Hibernate-ORM to get the (JDBC) Database Connection up and running as well as managing the actual data in/from the local (SQL) Database.
 
 ## EER-Diagram (Extended/Enhanced Entity Relationship Diagram) ##
 <p align="center">
