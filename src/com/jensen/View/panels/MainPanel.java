@@ -7,7 +7,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 /**
  * 
- * This Class serves as the MainPanel (or JPanel) of this Application's GUI. It contains all the JButtons the user can interact with.
+ * This Class serves as the MainPanel (or JPanel) of this Application's GUI. 
+ * It contains all the JButtons the user can interact with.
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm
@@ -47,7 +48,6 @@ public class MainPanel implements Panel {
 				buttonLeft.get(i).setBounds(30, bounds + 180, 80, 20);
 			}
 		}
-
 		for (int i = 0; i < this.menyButtonRight.length; i++) {
 			buttonRight.add(new JButton(menyButtonRight[i]));
 			buttonRight.get(i).setBounds(200, bounds, 220, 20);
@@ -62,7 +62,6 @@ public class MainPanel implements Panel {
 		this.panel.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		
 		this.panel.setPreferredSize(new Dimension(650, 400));
 		
 		for (int i = 0; i < buttonLeft.size(); i++) {
@@ -83,7 +82,8 @@ public class MainPanel implements Panel {
 	 * This Method is being used whenever the Application requires the MainTable to Refresh
 	 */
 	@Override
-	public void update() {}
+	public void update() {
+	}
 	/**
 	 * This Method is being used to retrieve the ArrayList of JButton Objects of buttonLeft
 	 * 

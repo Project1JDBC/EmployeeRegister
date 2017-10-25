@@ -15,7 +15,8 @@ import com.jensen.Model.Skill;
 import com.jensen.Model.TableColumnEnum;
 /**
  * 
- * This Class holds all the necessary methods and variables for the database connection. It also currently holds a few methods which updates the View with the correct data asked for [The latter will be fixed in the near future].
+ * This Class holds all the necessary methods and variables for the database connection. 
+ * It also currently holds a few methods which updates the View with the correct data asked for.
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm
@@ -29,17 +30,21 @@ public class QueryManager {
 	private List<Role> roles = new LinkedList<Role>();
 	private List<Skill> skills = new LinkedList<Skill>();
 	/**
-	 * This is the Constructor for the Class QueryManager. Takes in a DefaultTableModel object as well as a Session Object through 2 (two) parameters.
+	 * This is the Constructor for the Class QueryManager. Takes in a DefaultTableModel object
+	 * as well as a Session Object through 2 (two) parameters.
 	 * 
-	 * @param session This parameter is used to set this Class's database connection. Parameter value taken from Application.Class
-	 * @param model This parameter is used to update this Class's DefaultTableModel reference. [Required due to the current design but will be fixed properly to follow a better MVC-Design Pattern in the near future.]
+	 * @param session This parameter is used to set this Class's database connection. 
+	 * Parameter value taken from Application.Class
+	 * @param model This parameter is used to update this Class's DefaultTableModel reference. 
+	 * 
 	 */
-	public QueryManager(Session session, DefaultTableModel model) {
+	public QueryManager(DefaultTableModel model, Session session) {
 		this.model = model;
 		this.session = session;
 	}
 	/**
-	 * Updates the list of Employees and then returns all Employees and places it into the correct row in the DefaultTableModel. Uses EnumType for TableModel Column Names.
+	 * Updates the list of Employees and then returns all Employees and places it into the 
+	 * correct row in the DefaultTableModel. Uses EnumType for TableModel Column Names.
 	 */
 	public void showAllEmployee() {
 		updateListOfEmployees();
@@ -53,12 +58,14 @@ public class QueryManager {
 
 		for (Employee employee : employees) {
 			this.model.addRow(new Object[] { employee.getId(), employee.getFirstname(), employee.getLastname(),
-				 employee.getLocation().getId(),employee.getRole().getId(),
+					employee.getLocation().getLocation(),employee.getRole().getRole(),
 					employee.getRegistrationDate() });
 		}
 	}
 	/**
-	 * Updates the list of Employees and then returns all Employees sorted by Employee ID and Employee Firstname and places it into the correct row in the DefaultTableModel. Uses EnumType for TableModel Column Names.
+	 * Updates the list of Employees and then returns all Employees sorted by Employee ID 
+	 * and Employee Firstname and places it into the correct row in the DefaultTableModel. 
+	 * Uses EnumType for TableModel Column Names.
 	 */
 	public void getAllRowsOnlyName() {
 		updateListOfEmployees();
@@ -73,8 +80,10 @@ public class QueryManager {
 	/**
 	 * This Method is being called whenever a user wants to insert a new Employee into the Database.
 	 *  
-	 * @param employee This parameter is used to act as the Employee object which is going to be added into the database. 
-	 * @param skillId This parameter is used to find the correct Skill object from the current Session by calling session.get(Class.class, id) 
+	 * @param employee This parameter is used to act as the Employee object which is going 
+	 * to be added into the database. 
+	 * @param skillId This parameter is used to find the correct Skill object from the current 
+	 * Session by calling session.get(Class.class, id) 
 	 */
 	public void insertInto(Employee employee, String skillId) {
 		this.session.beginTransaction();
@@ -82,14 +91,14 @@ public class QueryManager {
 		Set<Skill> skills = new HashSet<Skill>();
 		Skill skill = session.get(Skill.class, Integer.parseInt(skillId));
 		skills.add(skill);
-		
+
 		Role role = session.get(Role.class, employee.getRoleId());
 		employee.setRole(role);
 		Location location = session.get(Location.class, employee.getLocationId());
 		employee.setLocation(location);
 		Date date = new Date();
 		employee.setRegistrationDate(date);
-		
+
 		employee.setSkills(skills);
 		this.session.save(employee);
 		this.session.getTransaction().commit();
@@ -98,7 +107,8 @@ public class QueryManager {
 	/**
 	 * This Method is being called whenever a user wants to remove a Employee from the Database.
 	 *  
-	 * @param id This parameter is used to load the Employee object from the current Session which is then going to be removed from the database. 
+	 * @param id This parameter is used to load the Employee object from the current Session 
+	 * which is then going to be removed from the database. 
 	 */
 	public void deleteEmployee(String id) {
 		updateListOfEmployees();
@@ -113,7 +123,8 @@ public class QueryManager {
 	/**
 	 * This Method is being called whenever a user wants to update a Employee from the Database.
 	 *  
-	 * @param employee This parameter is used to load the Employee object from the current Session which is then going to be altered/updated to the database. 
+	 * @param employee This parameter is used to load the Employee object from the current Session 
+	 * which is then going to be altered/updated to the database. 
 	 */
 	public void updateEmployee(Employee employee) {
 		updateListOfEmployees();
@@ -175,7 +186,8 @@ public class QueryManager {
 		this.skills = this.session.createQuery(result).getResultList();
 	}
 	/**
-	 * This Method is being called whenever a user wants to find all Employees who's First Name or Last Name contains the Input Value. [Filtered by Employee ID, First Name and Last Name]
+	 * This Method is being called whenever a user wants to find all Employees who's First Name 
+	 * or Last Name contains the Input Value. [Filtered by Employee ID, First Name and Last Name]
 	 * 
 	 * @param input This is the Input Value in which the Employee is being selected by 
 	 */
@@ -195,7 +207,8 @@ public class QueryManager {
 		}
 	}
 	/**
-	 * This Method is being called whenever a user wants to find all Employees who's the Location is the same as the Input Value. [Filtered by First Name, Last Name and Location]
+	 * This Method is being called whenever a user wants to find all Employees who's the Location 
+	 * is the same as the Input Value. [Filtered by First Name, Last Name and Location]
 	 * 
 	 * @param input This is the Input Value in which the Employee is being selected by 
 	 */
@@ -214,7 +227,8 @@ public class QueryManager {
 		}
 	}
 	/**
-	 * This Method is being called whenever a user wants to get all Locations [Filtered by Location ID and Location]
+	 * This Method is being called whenever a user wants to get all Locations 
+	 * [Filtered by Location ID and Location]
 	 */
 	public void getAllLocation() {
 		updateListOfLocations();
@@ -227,7 +241,8 @@ public class QueryManager {
 		}
 	}
 	/**
-	 * This Method is being called whenever a user wants to find all Employees who's the Role is the same as the Input Value. [Filtered by First Name, Last Name and Role]
+	 * This Method is being called whenever a user wants to find all Employees who's the Role 
+	 * is the same as the Input Value. [Filtered by First Name, Last Name and Role]
 	 * 
 	 * @param input This is the Input Value in which the Employee is being selected by 
 	 */
@@ -247,7 +262,8 @@ public class QueryManager {
 		}
 	}
 	/**
-	 * This Method is being called whenever a user wants to get all Roles [Filtered by Role ID and Role]
+	 * This Method is being called whenever a user wants to get all Roles 
+	 * [Filtered by Role ID and Role]
 	 */
 	public void getAllRole() {
 		updateListOfRoles();
@@ -260,7 +276,9 @@ public class QueryManager {
 		}
 	}
 	/**
-	 * This Method is being called whenever a user wants to find all Employees who's the Skills are the same as the Input Value. [Filtered by First Name, Last Name and Skill]
+	 * This Method is being called whenever a user wants to find all Employees 
+	 * who's the Skills are the same as the Input Value. 
+	 * [Filtered by First Name, Last Name and Skill]
 	 * 
 	 * @param input This is the Input Value in which the Employee is being selected by 
 	 */
@@ -283,7 +301,8 @@ public class QueryManager {
 		}
 	}
 	/**
-	 * This Method is being called whenever a user wants to get all Skills [Filtered by Skill ID and Skill]
+	 * This Method is being called whenever a user wants to get all Skills 
+	 * [Filtered by Skill ID and Skill]
 	 */
 	public void getAllSkills() {
 		updateListOfSkills();

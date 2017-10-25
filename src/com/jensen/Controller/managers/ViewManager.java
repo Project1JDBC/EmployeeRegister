@@ -35,8 +35,9 @@ public class ViewManager {
 		this.window = new MainWindow("Employee Register");
 		this.panel = new MainPanel();
 		this.tableView = new TableView();
-		this.setButtonLeft(this.getPanel().getButtonLeft());
-		this.setButtonRight(this.getPanel().getButtonRight());
+		setButtonLeft(panel.getButtonLeft());
+		setButtonRight(panel.getButtonRight());
+
 	}
 	/**
 	 * This Method is being called whenever the Application needs a DefaultTableModel
@@ -48,6 +49,7 @@ public class ViewManager {
 	}
 	/**
 	 * This Method is being called whenever the Application needs to initialize the default GUI
+	 * 
 	 */
 	public void initDefaultGUI() {
 		this.panel.addComponents();
@@ -78,7 +80,8 @@ public class ViewManager {
 		this.panel = panel;
 	}
 	/**
-	 * This Method is being called whenever the Application needs to return the list of Buttons (Left Side in View) Object
+	 * This Method is being called whenever the Application needs to return 
+	 * the list of Buttons (Left Side in View) Object
 	 * 
 	 * @return A list of JButtons
 	 */
@@ -86,7 +89,8 @@ public class ViewManager {
 		return buttonLeft;
 	}
 	/**
-	 * This Method is being called whenever the Application needs to set the list of Buttons (Left Side in View) Object
+	 * This Method is being called whenever the Application needs to set 
+	 * the list of Buttons (Left Side in View) Object
 	 * 
 	 * @param arrayList Set this Object's list of JButtons to this Object
 	 */
@@ -94,7 +98,8 @@ public class ViewManager {
 		this.buttonLeft = arrayList;
 	}
 	/**
-	 * This Method is being called whenever the Application needs to return the list of Buttons (Right Side in View) Object
+	 * This Method is being called whenever the Application needs to return 
+	 * the list of Buttons (Right Side in View) Object
 	 * 
 	 * @return A list of JButtons
 	 */
@@ -102,7 +107,8 @@ public class ViewManager {
 		return this.buttonRight;
 	}
 	/**
-	 * This Method is being called whenever the Application needs to set the list of Buttons (Right Side in View) Object
+	 * This Method is being called whenever the Application needs to set 
+	 * the list of Buttons (Right Side in View) Object
 	 * 
 	 * @param arrayList Set this Object's list of JButtons to this Object
 	 */

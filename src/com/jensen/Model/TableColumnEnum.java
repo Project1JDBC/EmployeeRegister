@@ -30,7 +30,8 @@ public enum TableColumnEnum {
 	
 	private String columnName;
 	/**
-	 * A EnumType Constructor that takes a finalized Column Name as a String and sets it to the appropriate Enumeration
+	 * A EnumType Constructor that takes a finalized Column Name as a String 
+	 * and sets it to the appropriate Enumeration
 	 * 
 	 * @param columnName Used to define the String of a Column Name
 	 */
@@ -38,7 +39,8 @@ public enum TableColumnEnum {
 		this.columnName = columnName;
 	}
 	/**
-	 * This Method is being used whenever this EnumType is being called and will return a String with a Column Name Value
+	 * This Method is being used whenever this EnumType is being called and will 
+	 * return a String with a Column Name Value
 	 * 
 	 * @return A String with a Column Name Value
 	 */

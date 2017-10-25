@@ -12,12 +12,11 @@ import javax.swing.*;
  *
  */
 public class MainWindow extends JFrame {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -535055836621390505L;
 	/**
-	 * Creates a simple Window which acts as a Main Frame for the Application. Takes a String as a Parameter
+	 * Creates a simple Window which acts as a Main Frame for the Application. 
+	 * Takes a String as a Parameter
 	 * 
 	 * @param title Used to set this MainWindow Object's Title
 	 */
@@ -29,7 +28,6 @@ public class MainWindow extends JFrame {
 	private void init() {
 		this.initDefaultGUI();
 	}
-
 	private void initDefaultGUI() {
 		this.setLayout(new GridLayout(2, 0));
 	}
@@ -50,9 +48,12 @@ public class MainWindow extends JFrame {
 	/**
 	 * This Method is being called whenever the Application needs to Update the MainWindow Object
 	 */
-	public void update() {}
+	public void update() {
+		
+	}
 	/**
-	 * This Method is being used whenever the Application needs to close and dispose the MainWindow Object [Usually when terminating the Application]
+	 * This Method is being used whenever the Application needs to close and 
+	 * dispose the MainWindow Object [Usually when terminating the Application]
 	 */
 	public void close() {
 		this.setVisible(false); 

@@ -30,7 +30,9 @@ public class Location {
 	/**
 	 * Default Constructor for Location.class
 	 */
-	public Location() {}
+	public Location(){
+		
+	}
 	/**
 	 * This Method is being used to retrieve the id of the Location Object
 	 * 

@@ -29,7 +29,8 @@ public class RoleManager {
 	/**
 	 * This Method is being called whenever a user wants to get a specific Role by ID
 	 * 
-	 * @param id This parameter is used to identify a Role from a List of Roles in order to either return that object or return null
+	 * @param id This parameter is used to identify a Role from a List of Roles in order 
+	 * to either return that object or return null
 	 * @return If Role is found it will return that Role object and return Null if it's NOT being found
 	 */
 	public Role getRoleById(int id){

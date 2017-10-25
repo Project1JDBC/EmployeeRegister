@@ -22,16 +22,18 @@ public class Role {
 	@Id
 	@Column(name="role_id")
 	private int id;
-	
+
 	@Column(name="role")
 	private String role;
-	
+
 	@OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
 	private Set<Employee> employees = new HashSet<Employee>();
 	/**
 	 * Default Constructor of Role.class
 	 */
-	public Role() {}
+	public Role(){
+
+	}
 	/**
 	 * This Method is being used to retrieve the Unique ID of a Role Object
 	 * 
@@ -81,3 +83,4 @@ public class Role {
 		this.employees = employees;
 	}
 }
+

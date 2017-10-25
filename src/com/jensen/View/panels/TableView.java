@@ -8,7 +8,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 /**
  * 
- * This Class serves as the TableView (or JPanel) of this Application's GUI. It contains the JTable the user can interact with. All Database Data will be displayed here.
+ * This Class serves as the TableView (or JPanel) of this Application's GUI. 
+ * It contains the JTable the user can interact with. All Database Data will be displayed here.
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm
