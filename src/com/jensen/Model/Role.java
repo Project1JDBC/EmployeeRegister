@@ -11,7 +11,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 /**
  * 
- * This Class makes sure that application runs
+ * This Class is the EntityType of a Role
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm
@@ -19,7 +19,6 @@ import javax.persistence.OneToMany;
  */
 @Entity(name="roles")
 public class Role {
-	
 	@Id
 	@Column(name="role_id")
 	private int id;
@@ -29,33 +28,56 @@ public class Role {
 	
 	@OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
 	private Set<Employee> employees = new HashSet<Employee>();
-	
-	public Role(){
-		
-	}
-
+	/**
+	 * Default Constructor of Role.class
+	 */
+	public Role() {}
+	/**
+	 * This Method is being used to retrieve the Unique ID of a Role Object
+	 * 
+	 * @return A Unique ID of a Role Object
+	 */
 	public int getId() {
 		return id;
 	}
-
+	/**
+	 * This Method is being used to set the Unique ID of a Role Object
+	 * 
+	 * @param id Used to set the Unique ID of this Role Object
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+	/**
+	 * This Method is being used to set a String Value of a Role Object
+	 * 
+	 * @return A String Value of this Role Object
+	 */
 	public String getRole() {
 		return role;
 	}
-
+	/**
+	 * This Method is being used to set a String Value of a Role Object
+	 * 
+	 * @param role Used to set this Object's Role
+	 */
 	public void setRole(String role) {
 		this.role = role;
 	}
-
+	/**
+	 * This Method is being used to retrieve a Set of Employee Objects
+	 * 
+	 * @return A Set of Employee Objects
+	 */
 	public Set<Employee> getEmployees() {
 		return employees;
 	}
-
+	/**
+	 * This Method is being used to set a Set of Employee Objects
+	 * 
+	 * @param employees Used to set a Set of Employee Objects
+	 */
 	public void setEmployees(Set<Employee> employees) {
 		this.employees = employees;
 	}
-	
 }

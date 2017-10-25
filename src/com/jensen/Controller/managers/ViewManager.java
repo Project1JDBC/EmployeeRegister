@@ -10,7 +10,7 @@ import com.jensen.View.panels.MainPanel;
 import com.jensen.View.panels.TableView;
 /**
  * 
- * This Class makes sure that application runs
+ * This Class manages the View. It makes sure everything is updated
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm

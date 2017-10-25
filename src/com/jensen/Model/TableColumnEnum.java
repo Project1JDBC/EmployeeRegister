@@ -1,14 +1,13 @@
 package com.jensen.Model;
 /**
  * 
- * This Class makes sure that application runs
+ * This Class is the EnumTypes for Column Names
  * 
  * @author Kami Hassanzadeh
  * @author Gustav Malm
  *
  */
 public enum TableColumnEnum {
-	
 	/* Employee */
 	E_EMPLOYEEID("Employee ID"),
 	E_FIRSTNAME("First Name"),
@@ -30,18 +29,27 @@ public enum TableColumnEnum {
 	L_LOCATION("Location");
 	
 	private String columnName;
-	
+	/**
+	 * A EnumType Constructor that takes a finalized Column Name as a String and sets it to the appropriate Enumeration
+	 * 
+	 * @param columnName Used to define the String of a Column Name
+	 */
 	TableColumnEnum(final String columnName) {
 		this.columnName = columnName;
 	}
-	
+	/**
+	 * This Method is being used whenever this EnumType is being called and will return a String with a Column Name Value
+	 * 
+	 * @return A String with a Column Name Value
+	 */
 	public String getColumnName() {
 		return this.columnName;
 	}
-	
+	/**
+	 * Overrides the toString() Method to return a Column Name directly
+	 */
 	@Override
     public String toString() {
         return this.getColumnName();
     }
-
 }
